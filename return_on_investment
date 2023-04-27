@@ -1,0 +1,25 @@
+def calculate_roi():
+
+    monthly_income = float(input("Enter the monthly rental income for the property: "))
+    monthly_mortgage = float(input("Enter the monthly mortgage payment for the property: "))
+    monthly_tax = float(input("Enter the monthly property tax for the property: "))
+    monthly_insurance = float(input("Enter the monthly insurance cost for the property: "))
+    monthly_capex = float(input("Enter the monthly capital expenditure for the property: "))
+    monthly_pm = float(input("Enter the monthly property management cost for the property (or 0 if self-managing): "))
+    monthly_utilities = float(input("Enter the monthly cost of utilities for the property: "))
+    monthly_hoa = float(input("Enter the monthly HOA fee for the property (or 0 if none): "))
+    monthly_lawn = float(input("Enter the monthly cost of lawn care for the property (or 0 if none): "))
+    monthly_vacancy = float(input("Enter the monthly cost of vacancy for the property as a percentage of income (e.g. 5 for 5%): "))
+    monthly_repairs = float(input("Enter the monthly cost of repairs and maintenance for the property: "))
+    total_investment = float(input("Enter the total investment in the property, including down payment, closing costs, rehab budget, and misc expenses: "))
+
+    total_monthly_expenses = monthly_mortgage + monthly_tax + monthly_insurance + monthly_capex + monthly_pm + monthly_utilities + monthly_hoa + monthly_lawn + (monthly_income * monthly_vacancy / 100) + monthly_repairs
+
+    annual_cashflow = (monthly_income - total_monthly_expenses) * 12
+
+    roi = (annual_cashflow / total_investment) * 100
+
+    return roi
+
+roi = calculate_roi()
+print("The ROI for this property is:", roi, "%")
